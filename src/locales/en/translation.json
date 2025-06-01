@@ -1,0 +1,82 @@
+{
+  "search": "Search",
+  "table": "Table #",
+  "cancellation": "Cancellation",
+  "number": "Phone",
+  "addres": "Address",
+  "comment": "Comment",
+  "main": "To main",
+  "hidden": "Hide",
+  "category": "Categories",
+  "allDishes": "All dishes",
+  "notFound": "Sorry, nothing found",
+  "selectBranch": "Select branch",
+  "phoneNumber": "Phone number",
+  "all": "All",
+  "qrTable": "Scan table QR",
+  "orderStatus": {
+    "accepted": "Order accepted",
+    "preparing": "Please wait, your order will be ready soon",
+    "cancelled": "Order cancelled",
+    "processing": "Thank you, your order is being processed",
+    "waiting": "Please wait, your order has been accepted",
+    "delivering": "Being delivered",
+    "delivery": "Please wait, your order has been accepted. We will deliver soon"
+  },
+  "necessarily": "Required*",
+  "banner": {
+    "loading": "Loading banners...",
+    "error": "Error loading banners"
+  },
+  "basket": {
+    "title": "Cart",
+    "addItems": "Add items to cart",
+    "empty": "Your cart is empty",
+    "total": "Total",
+    "order": "Order",
+    "orderButton": "Order",
+    "continueButton": "Continue shopping",
+    "removeButton": "Remove",
+    "removeAllButton": "Clear cart",
+    "clear": "Clear",
+    "removeAllConfirm": {
+      "title": "Clear cart?",
+      "text": "Are you sure you want to clear the cart?"
+    }
+  },
+  "services": "Service",
+  "empty": {
+    "contact": "Your order details",
+    "comment": "Write the order time or comment",
+    "deteil": "Amount details",
+    "location": "Write the delivery address",
+    "total": "Total cost",
+    "totalAmount": "Final amount",
+    "myself": "Takeaway",
+    "institution": "At the establishment",
+    "delivery": "Delivery"
+  },
+  "orders": {
+    "title": "My orders",
+    "empty": "You have no orders yet",
+    "takeAway": "Takeaway",
+    "forgotten": "Forgot anything?",
+    "orderType": "Choose order type"
+  },
+  "deliver": {
+    "twoGis": "Address or 2GIS link"
+  },
+  "size": {
+    "size": "Choose size",
+    "weight": "Weight",
+    "volume": "Volume",
+    "pieces": "Pieces"
+  },
+  "button": {
+    "add": "Add",
+    "addToBasket": "Add to cart",
+    "order": "Order",
+    "next": "Next",
+    "menu": "To menu"
+  }
+}
