@@ -16,7 +16,6 @@ import { loadVenueFromStorage } from 'src/utlis/storageUtils';
 const SubHeader = () => {
   const { venue, id } = useParams();
   const dispatch = useDispatch();
-  // const venueData = useAppSelector((state) => state.yourFeature.venue);
   const { data } = useGetVenueQuery({
     venueSlug: venue || '',
     tableId: Number(id) || undefined,
@@ -32,10 +31,6 @@ const SubHeader = () => {
     if (loadedVenue.companyName !== venue) {
       dispatch(clearCart());
     }
-
-    // if(venueData.activeSpot !== location.pathname.split('/').filter((item) => +item)[0]) {
-
-    // }
   }, []);
 
   return (
@@ -47,7 +42,6 @@ const SubHeader = () => {
           </div>
           <div>
             <div className='name'>{data?.companyName}</div>
-            <span className='schedule'>{data?.schedule}</span>
           </div>
         </div>
         <div className='flex items-center justify-between md:gap-[12px] md:flex-initial'>

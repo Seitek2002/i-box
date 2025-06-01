@@ -3,12 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
 import Catalog from './components/Catalog';
-import Categories from './components/Categories';
 import Search from './components/Search';
 import BusketDesktop from 'components/BusketDesktop';
 import ClearCartModal from 'components/ClearCartModal';
 import Header from 'components/Header';
-// import Hero from 'components/Hero';
+import Hero from 'components/Hero';
 import SupHeader from 'components/SubHeader';
 
 import clearCartIcon from 'assets/icons/Busket/clear-cart.svg';
@@ -19,9 +18,6 @@ const Home = () => {
   const [searchText, setSearchText] = useState('');
   const location = useLocation();
   const [active, setActive] = useState<boolean>(false);
-  const [selectedCategory, setSelectedCategory] = useState<number | undefined>(
-    undefined
-  );
   const catalogRef = useRef<HTMLDivElement>(null);
   const [search, onSearch] = useState(false);
   const userData = loadUsersDataFromStorage();
@@ -34,11 +30,6 @@ const Home = () => {
     onSearch(bool);
     document.body.style.overflow = bool ? 'hidden' : '';
     window.scrollTo(0, 0);
-  };
-
-  const handleCategoryChange = (categoryId?: number) => {
-    setSelectedCategory(categoryId);
-    catalogRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -72,25 +63,16 @@ const Home = () => {
               setSearchText={setSearchText}
             />
           )}
-          <Categories
-            onCategoryChange={handleCategoryChange}
-            onSearchChange={onSearchChange}
-          />
+          <Hero />
           <div ref={catalogRef} className='pb-[100px]'>
-            <Catalog selectedCategory={selectedCategory} />
+            <Catalog />
           </div>
         </>
       ) : (
         <div className='flex gap-[30px] items-start pb-[50px] w-full'>
           <div className='w-[60%]'>
-            <Categories
-              onCategoryChange={handleCategoryChange}
-              onSearchChange={onSearchChange}
-            />
-            <Catalog
-              searchText={searchText}
-              selectedCategory={selectedCategory}
-            />
+            <Hero />
+            <Catalog searchText={searchText} />
           </div>
           <div className='flex-1 sticky top-0'>
             <div className='busket'>

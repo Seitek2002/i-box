@@ -45,7 +45,7 @@ const Header: FC<IProps> = ({ searchText, setSearchText }) => {
       <div className='header__content'>
         <div className='logo'>
           <img src={logoIcon} alt='iMenu Logo' />
-          <span>iMenu.kg</span>
+          <span>iBox.kg</span>
         </div>
 
         {setSearchText && (

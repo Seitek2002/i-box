@@ -15,10 +15,9 @@ import { t } from 'i18next';
 
 interface IProps {
   searchText?: string;
-  selectedCategory?: number;
 }
 
-const Catalog: FC<IProps> = ({ searchText, selectedCategory = 0 }) => {
+const Catalog: FC<IProps> = ({ searchText }) => {
   const { venue } = useParams();
   const [isShow, setIsShow] = useState(false);
   const [activeFood, setActiveFood] = useState<IProduct | null>(null);
@@ -28,7 +27,6 @@ const Catalog: FC<IProps> = ({ searchText, selectedCategory = 0 }) => {
   );
   const navigate = useNavigate();
   const { data: items } = useGetProductsQuery({
-    category: selectedCategory || undefined,
     search: searchText,
     venueSlug: venue,
   });
