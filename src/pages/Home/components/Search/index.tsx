@@ -21,7 +21,6 @@ const Search: FC<IProps> = ({ onSearchChange, searchText, setSearchText }) => {
   const [isShow, setIsShow] = useState(false);
   const [activeFood, setActiveFood] = useState<IProduct | null>(null);
   const { data: items } = useGetProductsQuery({
-    category: undefined,
     search: searchText,
     venueSlug: venue,
   });
