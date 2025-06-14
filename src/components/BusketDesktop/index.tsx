@@ -20,7 +20,6 @@ const BusketDesktop = ({
   const colorTheme = useAppSelector(
     (state) => state.yourFeature.venue?.colorTheme
   );
-  const venueData = useAppSelector((state) => state.yourFeature.venue);
   const cart = useAppSelector((state) => state.yourFeature.cart);
   const location = useLocation();
 
@@ -34,9 +33,6 @@ const BusketDesktop = ({
 
   return (
     <div className='busket__content'>
-      {venueData?.table?.tableNum && (
-        <div className='table-num'>{t('table')}{venueData.table.tableNum}</div>
-      )}
       {cart.length > 0 ? (
         <>
           {cart.map((item) => (
