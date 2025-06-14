@@ -94,7 +94,7 @@ const Scan: FC = () => {
             </div>
           )}
         </div>
-        <button className='py-[15px] px-[30px] bg-[#875AFF] text-white rounded-[12px] mt-[30px]' onClick={() => navigate('/admin/login/')}>Вход для заведения</button>
+        <button className='py-[15px] px-[30px] bg-[#875AFF] text-white rounded-[12px] mt-[30px]' onClick={() => navigate('/admin/')}>Вход для заведения</button>
       </div>
     </>
   );
