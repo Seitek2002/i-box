@@ -14,7 +14,6 @@ import BusketCard from 'components/Cards/Cart';
 import CatalogCard from 'components/Cards/Catalog';
 import ClearCartModal from 'components/ClearCartModal';
 import FoodDetail from 'components/FoodDetail';
-import Loader from 'components/Loader';
 
 import clearCartIcon from 'assets/icons/Busket/clear-cart.svg';
 import cookie from 'assets/icons/Busket/cookie.svg';
