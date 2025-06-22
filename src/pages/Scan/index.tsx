@@ -94,7 +94,7 @@ const Scan: FC = () => {
             </div>
           )}
         </div>
-        <a href="https://ibox.operator.kg/admin/login/?next=/admin/" className='py-[15px] px-[30px] bg-[#875AFF] text-white rounded-[12px] mt-[30px]'>Вход для заведения</a>
+        <a href="https://ibox.kg/admin/login/?next=/admin/" className='py-[15px] px-[30px] bg-[#875AFF] text-white rounded-[12px] mt-[30px]'>Вход для заведения</a>
       </div>
     </>
   );
