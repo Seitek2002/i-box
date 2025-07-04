@@ -14,7 +14,7 @@ export interface IBanner {
 export const Banners = createApi({
   reducerPath: 'banners',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://imenu.kg/api/',
+    baseUrl: 'https://ibox.kg/api/',
     prepareHeaders: (headers) => {
       const currentLanguage = i18n.language || 'en';
       headers.set('Accept-Language', currentLanguage);

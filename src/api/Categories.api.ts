@@ -7,7 +7,7 @@ import i18n from 'i18next';
 export const Categories = createApi({
   reducerPath: 'categories',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://imenu.kg/api/',
+    baseUrl: 'https://ibox.kg/api/',
     prepareHeaders: (headers) => {
       const currentLanguage = i18n.language || 'en';
       headers.set('Accept-Language', currentLanguage);

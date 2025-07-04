@@ -6,7 +6,7 @@ import { IProduct } from 'src/types/products.types';
 export const Products = createApi({
   reducerPath: 'productsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://imenu.kg/api/',
+    baseUrl: 'https://ibox.kg/api/',
     prepareHeaders: (headers) => {
       const currentLanguage = localStorage.getItem('i18nextLng') || 'en';
       headers.set('Accept-Language', currentLanguage);

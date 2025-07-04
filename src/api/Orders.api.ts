@@ -7,7 +7,7 @@ import i18n from 'i18next';
 export const Orders = createApi({
   reducerPath: 'ordersApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://imenu.kg/api/',
+    baseUrl: 'https://ibox.kg/api/',
     prepareHeaders: (headers) => {
       const currentLanguage = i18n.language || 'en';
       headers.set('Accept-Language', currentLanguage);
@@ -15,7 +15,15 @@ export const Orders = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getOrders: builder.query<IOrder[], { tableNum?: string; venueSlug?: string; spotSlug?: string; phone?: string; }>({
+    getOrders: builder.query<
+      IOrder[],
+      {
+        tableNum?: string;
+        venueSlug?: string;
+        spotSlug?: string;
+        phone?: string;
+      }
+    >({
       query: ({ tableNum, venueSlug, spotSlug, phone }) => {
         const params = new URLSearchParams();
         if (tableNum) params.append('tableNum', tableNum);
@@ -39,8 +47,13 @@ export const Orders = createApi({
       query: ({ id }) => {
         return `orders/${id}/`;
       },
-    })
+    }),
   }),
 });
 
-export const { useGetOrdersQuery, usePostOrdersMutation, useGetOrdersByIdQuery, useLazyGetOrdersByIdQuery } = Orders;
+export const {
+  useGetOrdersQuery,
+  usePostOrdersMutation,
+  useGetOrdersByIdQuery,
+  useLazyGetOrdersByIdQuery,
+} = Orders;
