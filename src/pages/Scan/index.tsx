@@ -88,7 +88,7 @@ const Scan: FC = () => {
           ) : (
             <div className='w-full'>
               <p className='text-center text-xl mb-3'>
-                Наведите на QR код стола
+                Наведите на QR код устройства
               </p>
               <Scanner onScan={handleScan} onError={handleError} />
             </div>

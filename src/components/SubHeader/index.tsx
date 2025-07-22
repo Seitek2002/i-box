@@ -65,7 +65,7 @@ const SubHeader = () => {
             )
           } */}
           {data?.table?.tableNum && (
-            <div className='table'>Стол №{data.table.tableNum}</div>
+            <div className='table'>Устройство №{data.table.tableNum}</div>
           )}
         </div>
       </div>
