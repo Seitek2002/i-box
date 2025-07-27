@@ -14,9 +14,6 @@ const Takeaway = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.yourFeature.venue);
-  const colorTheme = useAppSelector(
-    (state) => state.yourFeature.venue?.colorTheme
-  );
 
   const handleClick = (spot: ISpot) => {
     const res = loadUsersDataFromStorage();
@@ -36,7 +33,7 @@ const Takeaway = () => {
                 <img src={data?.logo} alt='' />
               </div>
               <div>
-                <div className='text-[20px] font-bold'>{data?.companyName}</div>
+                <div className='text-[20px] font-bold'>{data?.slug}</div>
               </div>
             </div>
           </div>
@@ -48,16 +45,18 @@ const Takeaway = () => {
             return (
               <button
                 className='tabs__pickup-item'
-                style={{ borderColor: colorTheme }}
+                style={{ borderColor: '#f80101' }}
                 key={spot.id}
                 onClick={() => handleClick(spot)}
               >
-                <img src={geoIcon} alt='geoIcon' style={{ backgroundColor: colorTheme }} />
+                <img
+                  src={geoIcon}
+                  alt='geoIcon'
+                  style={{ backgroundColor: '#f80101' }}
+                />
                 <div>
                   <p className='tabs__pickup-item-name'>{spot.name}</p>
-                  <p className='tabs__pickup-item-address'>
-                    {spot.address}
-                  </p>
+                  <p className='tabs__pickup-item-address'>{spot.address}</p>
                 </div>
               </button>
             );

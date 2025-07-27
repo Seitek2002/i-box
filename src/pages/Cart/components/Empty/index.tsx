@@ -2,13 +2,8 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppSelector } from 'hooks/useAppSelector';
-
 const Empty: FC = () => {
   const navigate = useNavigate();
-  const colorTheme = useAppSelector(
-    (state) => state.yourFeature.venue.colorTheme
-  );
 
   const handleClick = () => {
     navigate(-1);
@@ -251,7 +246,7 @@ const Empty: FC = () => {
       <button
         onClick={handleClick}
         className='text-white'
-        style={{ backgroundColor: colorTheme }}
+        style={{ backgroundColor: '#f80101' }}
       >
         {t('button.menu')}
       </button>

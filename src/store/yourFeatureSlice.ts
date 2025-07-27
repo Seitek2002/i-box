@@ -36,7 +36,10 @@ const initialState: YourFeatureState = {
   cart: loadCartFromStorage(),
   usersData: loadUsersDataFromStorage(),
   buttonText: 'Заказать',
-  venue: loadVenueFromStorage(),
+  venue: {
+    ...loadVenueFromStorage(),
+    colorTheme: '#f80101',
+  },
   order: {
     comment: '',
     orderProducts: [],

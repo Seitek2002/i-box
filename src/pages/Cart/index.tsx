@@ -33,12 +33,7 @@ const Cart: React.FC = () => {
   const [isShow, setIsShow] = useState(false);
   const cart = useAppSelector((state) => state.yourFeature.cart);
   const [isLoading, setIsLoading] = useState(false);
-  const colorTheme = useAppSelector(
-    (state) => state.yourFeature.venue?.colorTheme
-  );
   const venueData = useAppSelector((state) => state.yourFeature.venue);
-
-  const [activeIndex, setActiveIndex] = useState(0);
 
   const [phoneNumber, setPhoneNumber] = useState(
     `+996${userData.phoneNumber.replace('996', '')}`
@@ -53,7 +48,7 @@ const Cart: React.FC = () => {
 
   const navigate = useNavigate();
   const { data } = useGetProductsQuery({
-    fridgeSlug: venueData.companyName.toUpperCase(),
+    fridgeSlug: venueData.slug,
   });
 
   const inputRef = useMask({
@@ -61,24 +56,6 @@ const Cart: React.FC = () => {
     replacement: { _: /\d/ },
   });
 
-  const orderTypes = useMemo(() => {
-    const arr: { text: string; value: number }[] = [];
-    if (venueData.isTakeoutAvailable) {
-      arr.push({ text: t('empty.myself'), value: 1 });
-    }
-    if (venueData.isDineinAvailable) {
-      arr.push({ text: t('empty.institution'), value: 2 });
-    }
-    if (venueData.isDeliveryAvailable) {
-      arr.push({ text: t('empty.delivery'), value: 3 });
-    }
-    return arr;
-  }, [
-    venueData.isTakeoutAvailable,
-    venueData.isDineinAvailable,
-    venueData.isDeliveryAvailable,
-    t,
-  ]);
 
   const handleClose = () => {
     setIsShow(false);
@@ -119,19 +96,14 @@ const Cart: React.FC = () => {
 
   const isButtonDisabled = useMemo(() => {
     if (phoneError) return false;
-
-    const isDelivery = orderTypes[activeIndex]?.value === 3;
-
-    if (isDelivery && addressError) return false;
-
+    if (addressError) return false;
     if (!phoneNumber.trim() || phoneNumber.length < 12) return false;
-    if (isDelivery && (!address.trim() || address.trim().length < 4))
-      return false;
-
+    if (!address.trim() || address.trim().length < 4) return false;
     return true;
-  }, [phoneNumber, address, phoneError, addressError, activeIndex, orderTypes]);
+  }, [phoneNumber, address, phoneError, addressError]);
 
   const handleOrder = async () => {
+    
     setIsLoading(true);
 
     const orderProducts = cart.map((item) => {
@@ -149,12 +121,6 @@ const Cart: React.FC = () => {
       }
     });
 
-    const currentType = orderTypes[activeIndex];
-    if (!currentType) {
-      setIsLoading(false);
-      return;
-    }
-
     const acc: IReqCreateOrder = {
       phone: phoneNumber
         .replace('-', '')
@@ -164,21 +130,14 @@ const Cart: React.FC = () => {
         .replace('+', '')
         .replace(' ', ''),
       orderProducts,
-      serviceMode: 1,
-      venue_slug: venueData.slug,
-      address: '',
+      serviceMode: 3,
+      fridgeSlug: venueData.slug,
+      address: venueData.location,
     };
 
     if (venueData?.table?.tableNum) {
       acc.serviceMode = 1;
       acc.table = +venueData.table.id;
-    } else {
-      if (currentType.value === 3) {
-        acc.serviceMode = 3;
-        acc.address = address;
-      } else {
-        acc.serviceMode = currentType.value;
-      }
     }
 
     dispatch(
@@ -186,7 +145,6 @@ const Cart: React.FC = () => {
         ...userData,
         phoneNumber: acc.phone,
         address,
-        type: currentType.value,
       })
     );
 
@@ -217,17 +175,12 @@ const Cart: React.FC = () => {
       const realPrice = getCartItemPrice(item);
       return acc + realPrice * item.quantity;
     }, 0);
-    return subtotal + subtotal * (venueData.serviceFeePercent / 100);
+    return subtotal;
   };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    if (userData.type) {
-      const idx = orderTypes.findIndex((it) => it.value === userData.type);
-      if (idx >= 0) setActiveIndex(idx);
-    }
-  }, [userData.type, orderTypes]);
+  }, []);
 
   return (
     <section className='cart'>
@@ -268,7 +221,7 @@ const Cart: React.FC = () => {
               <g>
                 <g transform='rotate(0 50 50)'>
                   <rect
-                    fill={colorTheme}
+                    fill={"#f80101"}
                     height='12'
                     width='6'
                     ry='6'
@@ -288,7 +241,7 @@ const Cart: React.FC = () => {
                 </g>
                 <g transform='rotate(30 50 50)'>
                   <rect
-                    fill={colorTheme}
+                    fill={"#f80101"}
                     height='12'
                     width='6'
                     ry='6'
@@ -308,7 +261,7 @@ const Cart: React.FC = () => {
                 </g>
                 <g transform='rotate(60 50 50)'>
                   <rect
-                    fill={colorTheme}
+                    fill={"#f80101"}
                     height='12'
                     width='6'
                     ry='6'
@@ -328,7 +281,7 @@ const Cart: React.FC = () => {
                 </g>
                 <g transform='rotate(90 50 50)'>
                   <rect
-                    fill={colorTheme}
+                    fill={"#f80101"}
                     height='12'
                     width='6'
                     ry='6'
@@ -348,7 +301,7 @@ const Cart: React.FC = () => {
                 </g>
                 <g transform='rotate(120 50 50)'>
                   <rect
-                    fill={colorTheme}
+                    fill={"#f80101"}
                     height='12'
                     width='6'
                     ry='6'
@@ -368,7 +321,7 @@ const Cart: React.FC = () => {
                 </g>
                 <g transform='rotate(150 50 50)'>
                   <rect
-                    fill={colorTheme}
+                    fill={"#f80101"}
                     height='12'
                     width='6'
                     ry='6'
@@ -388,7 +341,7 @@ const Cart: React.FC = () => {
                 </g>
                 <g transform='rotate(180 50 50)'>
                   <rect
-                    fill={colorTheme}
+                    fill={"#f80101"}
                     height='12'
                     width='6'
                     ry='6'
@@ -408,7 +361,7 @@ const Cart: React.FC = () => {
                 </g>
                 <g transform='rotate(210 50 50)'>
                   <rect
-                    fill={colorTheme}
+                    fill={"#f80101"}
                     height='12'
                     width='6'
                     ry='6'
@@ -428,7 +381,7 @@ const Cart: React.FC = () => {
                 </g>
                 <g transform='rotate(240 50 50)'>
                   <rect
-                    fill={colorTheme}
+                    fill={"#f80101"}
                     height='12'
                     width='6'
                     ry='6'
@@ -448,7 +401,7 @@ const Cart: React.FC = () => {
                 </g>
                 <g transform='rotate(270 50 50)'>
                   <rect
-                    fill={colorTheme}
+                    fill={"#f80101"}
                     height='12'
                     width='6'
                     ry='6'
@@ -468,7 +421,7 @@ const Cart: React.FC = () => {
                 </g>
                 <g transform='rotate(300 50 50)'>
                   <rect
-                    fill={colorTheme}
+                    fill={"#f80101"}
                     height='12'
                     width='6'
                     ry='6'
@@ -488,7 +441,7 @@ const Cart: React.FC = () => {
                 </g>
                 <g transform='rotate(330 50 50)'>
                   <rect
-                    fill={colorTheme}
+                    fill={"#f80101"}
                     height='12'
                     width='6'
                     ry='6'
@@ -549,7 +502,7 @@ const Cart: React.FC = () => {
                 <label htmlFor='phoneNumber'>
                   <span className='text-[14px]'>
                     {t('phoneNumber')}{' '}
-                    <span className='required' style={{ color: colorTheme }}>
+                    <span className='required' style={{ color: '#f80101' }}>
                       {t('necessarily')}
                     </span>
                   </span>
@@ -565,24 +518,6 @@ const Cart: React.FC = () => {
                     <div className='error-message'>{phoneError}</div>
                   )}
                 </label>
-
-                {orderTypes[activeIndex]?.value === 3 && (
-                  <>
-                    <label htmlFor='address'>
-                      <span className='text-[14px]'>{t('addres')}</span>
-                      <input
-                        type='text'
-                        id='address'
-                        placeholder={t('empty.location') || t('addres')}
-                        value={address}
-                        onChange={(e) => handleAddressChange(e.target.value)}
-                      />
-                      {addressError && (
-                        <div className='error-message'>{addressError}</div>
-                      )}
-                    </label>
-                  </>
-                )}
               </div>
 
               <div className='cart__sum bg-[#fff]'>
@@ -631,7 +566,7 @@ const Cart: React.FC = () => {
         <footer className='cart__footer'>
           <button
             disabled={!cart.length || !isButtonDisabled}
-            style={{ backgroundColor: colorTheme }}
+            style={{ backgroundColor: '#f80101' }}
             onClick={handleOrder}
           >
             {t('button.next') || 'Далее'}

@@ -36,9 +36,6 @@ const Order = () => {
     id: Number(params.id),
   });
   const venueData = useAppSelector((state) => state.yourFeature.venue);
-  const colorTheme = useAppSelector(
-    (state) => state.yourFeature.venue?.colorTheme
-  );
   const mainPage = localStorage.getItem('mainPage');
 
   const [order, setOrder] = useState<IOrderById | null>(null);
@@ -148,42 +145,42 @@ const Order = () => {
                 <g clipPath='url(#clip0_381_59651)'>
                   <path
                     d='M15.5 2.5H5.5C5.15482 2.5 4.875 2.77982 4.875 3.125V6.875C4.875 7.22018 5.15482 7.5 5.5 7.5H15.5C15.8452 7.5 16.125 7.22018 16.125 6.875V3.125C16.125 2.77982 15.8452 2.5 15.5 2.5Z'
-                    stroke={colorTheme}
+                    stroke={"#f80101"}
                     strokeWidth='1.7'
                     strokeLinecap='round'
                     strokeLinejoin='round'
                   />
                   <path
                     d='M16.75 11.25H4.25C3.90482 11.25 3.625 11.5298 3.625 11.875V13.125C3.625 13.4702 3.90482 13.75 4.25 13.75H16.75C17.0952 13.75 17.375 13.4702 17.375 13.125V11.875C17.375 11.5298 17.0952 11.25 16.75 11.25Z'
-                    stroke={colorTheme}
+                    stroke={"#f80101"}
                     strokeWidth='1.7'
                     strokeLinecap='round'
                     strokeLinejoin='round'
                   />
                   <path
                     d='M7.375 7.5V11.25'
-                    stroke={colorTheme}
+                    stroke={"#f80101"}
                     strokeWidth='1.7'
                     strokeLinecap='round'
                     strokeLinejoin='round'
                   />
                   <path
                     d='M13.625 7.5V11.25'
-                    stroke={colorTheme}
+                    stroke={"#f80101"}
                     strokeWidth='1.7'
                     strokeLinecap='round'
                     strokeLinejoin='round'
                   />
                   <path
                     d='M15.5 13.75V17.5'
-                    stroke={colorTheme}
+                    stroke={"#f80101"}
                     strokeWidth='1.7'
                     strokeLinecap='round'
                     strokeLinejoin='round'
                   />
                   <path
                     d='M5.5 13.75V17.5'
-                    stroke={colorTheme}
+                    stroke={"#f80101"}
                     strokeWidth='1.7'
                     strokeLinecap='round'
                     strokeLinejoin='round'
@@ -201,16 +198,16 @@ const Order = () => {
                 </defs>
               </svg>
               {data?.serviceMode == 1 && data?.tableNum && (
-                <span style={{ color: colorTheme }}>
+                <span style={{ color: '#f80101' }}>
                   {t('table')}
                   {data.tableNum}
                 </span>
               )}
               {data?.serviceMode == 2 && (
-                <span style={{ color: colorTheme }}>{t('orders.takeAway')}</span>
+                <span style={{ color: '#f80101' }}>{t('orders.takeAway')}</span>
               )}
               {data?.serviceMode == 3 && (
-                <span style={{ color: colorTheme }}>{t('orders.delivery')}</span>
+                <span style={{ color: '#f80101' }}>{t('orders.delivery')}</span>
               )}
             </div>
           </div>
@@ -298,7 +295,7 @@ const Order = () => {
 
           <button
             className='hidden md:block text-white w-full py-[16px] rounded-[12px] mt-[16px]'
-            style={{ backgroundColor: colorTheme }}
+            style={{ backgroundColor: '#f80101' }}
             onClick={handleNavigate}
           >
             {t('main')}
@@ -373,7 +370,7 @@ const Order = () => {
       {window.innerWidth < 768 && (
         <footer className='order__footer'>
           <button
-            style={{ backgroundColor: colorTheme }}
+            style={{ backgroundColor: '#f80101' }}
             onClick={handleNavigate}
           >
             {t('main')}

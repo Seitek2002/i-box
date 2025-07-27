@@ -30,10 +30,10 @@ export const saveVenueToStorage = (venue: IVenues) => {
 export const loadVenueFromStorage: () => IVenues = () => {
   const storedVenue = localStorage.getItem('venue');
   return storedVenue
-    ? JSON.parse(storedVenue)
+    ? { ...JSON.parse(storedVenue), colorTheme: '#f80101' }
     : {
-        colorTheme: '#875AFF',
-        companyName: '',
+        colorTheme: '#f80101',
+        slug: '',
         slug: '',
         logo: '',
         schedule: '',

@@ -1,7 +1,5 @@
 import { FC, useState } from 'react';
 
-import { useAppSelector } from 'hooks/useAppSelector';
-
 import './style.scss';
 
 interface IProps {
@@ -13,9 +11,6 @@ interface IProps {
 }
 
 const Item: FC<IProps> = ({ img, name, price, weight, quantity }) => {
-  const colorTheme = useAppSelector(
-    (state) => state.yourFeature.venue?.colorTheme
-  );
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
@@ -43,7 +38,7 @@ const Item: FC<IProps> = ({ img, name, price, weight, quantity }) => {
         <div className='order__status-list-info'>
           <span
             className='order__status-list-price'
-            style={{ color: colorTheme }}
+            style={{ color: '#f80101' }}
           >
             {price} с
           </span>

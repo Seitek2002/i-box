@@ -42,8 +42,6 @@ const Home = () => {
         activeSpot: +location.pathname.split('/').filter((item) => +item)[0],
       })
     );
-
-    console.log(JSON.parse(localStorage.getItem('users') ?? '{}'));
   }, []);
 
   return (

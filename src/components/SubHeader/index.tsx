@@ -28,7 +28,7 @@ const SubHeader = () => {
   useEffect(() => {
     const loadedVenue = loadVenueFromStorage();
 
-    if (loadedVenue.companyName !== venue) {
+    if (loadedVenue.slug !== venue) {
       dispatch(clearCart());
     }
   }, []);
@@ -41,7 +41,7 @@ const SubHeader = () => {
             <img src={data?.logo} alt='' />
           </div>
           <div>
-            <div className='name'>{data?.companyName}</div>
+            <div className='name'>{data?.slug}</div>
           </div>
         </div>
       </div> */}

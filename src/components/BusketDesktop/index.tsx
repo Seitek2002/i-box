@@ -17,9 +17,6 @@ const BusketDesktop = ({
 }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const colorTheme = useAppSelector(
-    (state) => state.yourFeature.venue?.colorTheme
-  );
   const cart = useAppSelector((state) => state.yourFeature.cart);
   const location = useLocation();
 
@@ -39,17 +36,15 @@ const BusketDesktop = ({
             <BusketCard key={item.id} item={item} />
           ))}
           <button
-            style={{ backgroundColor: colorTheme }}
+            style={{ backgroundColor: '#f80101' }}
             onClick={handleClick}
             disabled={disabled}
           >
-            {t("button.next")}
+            {t('button.next')}
           </button>
         </>
       ) : (
-        <div className='busket__empty text-center'>
-          {t('basket.addItems')}
-        </div>
+        <div className='busket__empty text-center'>{t('basket.addItems')}</div>
       )}
     </div>
   );

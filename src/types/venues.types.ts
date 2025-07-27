@@ -6,11 +6,11 @@ export interface ISpot {
 
 export interface IVenues {
   colorTheme: string;
-  companyName: string;
   slug: string;
   logo: string;
   schedule: string;
   serviceFeePercent: number;
+  location: string;
   table: {
     id: number;
     tableNum: string;

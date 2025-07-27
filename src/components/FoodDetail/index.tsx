@@ -20,9 +20,6 @@ interface IProps {
 
 const FoodDetail: FC<IProps> = ({ setIsShow, item, isShow }) => {
   const cart = useAppSelector((state) => state.yourFeature.cart);
-  const colorTheme = useAppSelector(
-    (state) => state.yourFeature.venue?.colorTheme
-  );
   const [isLoaded, setIsLoaded] = useState(false);
   const { t } = useTranslation();
   const [counter, setCounter] = useState(1);
@@ -150,7 +147,7 @@ const FoodDetail: FC<IProps> = ({ setIsShow, item, isShow }) => {
               <div className='size'>
                 <div className='flex items-center justify-between'>
                   <h2>{t('size.size')}</h2>
-                  <div style={{ color: colorTheme }} className='required'>
+                  <div style={{ color: '#f80101' }} className='required'>
                     {t('necessarily')}
                   </div>
                 </div>
@@ -163,7 +160,7 @@ const FoodDetail: FC<IProps> = ({ setIsShow, item, isShow }) => {
                       }`}
                       style={{
                         borderColor:
-                          selectedSize.name === sizeKey.name ? colorTheme : '',
+                          selectedSize.name === sizeKey.name ? '#f80101' : '',
                       }}
                       onClick={() => selectSize(sizeKey)}
                     >
@@ -192,7 +189,7 @@ const FoodDetail: FC<IProps> = ({ setIsShow, item, isShow }) => {
               </div>
               <div
                 className='counter__right'
-                style={{ backgroundColor: colorTheme, color: '#fff' }}
+                style={{ backgroundColor: '#f80101', color: '#fff' }}
               >
                 <button onClick={handleDone}>{t('button.add')}</button>
               </div>

@@ -21,9 +21,6 @@ const Deliver = () => {
   const [address, setAddress] = useState(userData.address || '');
   const [comment, setComment] = useState(userData.comment);
   const venueData = useAppSelector((state) => state.yourFeature.venue);
-  const colorTheme = useAppSelector(
-    (state) => state.yourFeature.venue?.colorTheme
-  );
 
   const handleClick = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -71,9 +68,7 @@ const Deliver = () => {
                 <img src={venueData?.logo} alt='' />
               </div>
               <div>
-                <div className='text-[20px] font-bold'>
-                  {venueData?.companyName}
-                </div>
+                <div className='text-[20px] font-bold'>{venueData?.slug}</div>
               </div>
             </div>
           </div>
@@ -83,7 +78,7 @@ const Deliver = () => {
         <form className='cart__contacts' onSubmit={handleClick}>
           <div className='flex items-center justify-between mb-[12px]'>
             <h4>{t('empty.contact')}</h4>
-            <span className='required' style={{ color: colorTheme }}>
+            <span className='required' style={{ color: '#f80101' }}>
               {t('necessarily')}
             </span>
           </div>
@@ -110,7 +105,7 @@ const Deliver = () => {
           />
           <button
             className='tabs__btn'
-            style={{ backgroundColor: colorTheme }}
+            style={{ backgroundColor: '#f80101' }}
             disabled={!isFormValid}
           >
             {t('button.next')}

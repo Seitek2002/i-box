@@ -16,9 +16,6 @@ interface IProps {
 const BusketCard: FC<IProps> = ({ item }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const dispatch = useAppDispatch();
-  const colorTheme = useAppSelector(
-    (state) => state.yourFeature.venue?.colorTheme
-  );
 
   const increment = () => {
     dispatch(addToCart({ ...item, quantity: 1 }));
@@ -46,7 +43,7 @@ const BusketCard: FC<IProps> = ({ item }) => {
       <div className='busket-card__text'>
         <h3>{item.productName}</h3>
         <div className='flex items-center'>
-          <span className='price' style={{ color: colorTheme }}>
+          <span className='price' style={{ color: '#f80101' }}>
             {item.modificators ? item.modificators.price : +item.productPrice} с
           </span>
           {item.modificators?.name && (

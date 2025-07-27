@@ -1,7 +1,5 @@
 import { FC } from 'react';
 
-import { useAppSelector } from 'hooks/useAppSelector';
-
 interface IProps {
   item: {
     id: number;
@@ -13,9 +11,6 @@ interface IProps {
 }
 
 const Item: FC<IProps> = ({ item, active, selectCategory }) => {
-  const colorTheme = useAppSelector(
-    (state) => state.yourFeature.venue?.colorTheme
-  );
 
   return (
     <div
@@ -26,8 +21,8 @@ const Item: FC<IProps> = ({ item, active, selectCategory }) => {
       <div
         className={`categories__wrapper`}
         style={{
-          backgroundColor: active === item.id ? colorTheme : 'white',
-          borderColor: active === item.id ? colorTheme : 'white',
+          backgroundColor: active === item.id ? "#f80101" : 'white',
+          borderColor: active === item.id ? "#f80101" : 'white',
         }}
       >
         <img src={item.categoryPhoto} alt='icon' />

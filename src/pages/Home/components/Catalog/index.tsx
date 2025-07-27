@@ -22,9 +22,6 @@ const Catalog: FC<IProps> = ({ searchText }) => {
   const [isShow, setIsShow] = useState(false);
   const [activeFood, setActiveFood] = useState<IProduct | null>(null);
   const cart = useAppSelector((state) => state.yourFeature.cart);
-  const colorTheme = useAppSelector(
-    (state) => state.yourFeature.venue?.colorTheme
-  );
   const navigate = useNavigate();
   const { data: items } = useGetProductsQuery({
     search: searchText,
@@ -84,16 +81,14 @@ const Catalog: FC<IProps> = ({ searchText }) => {
       <h2>{t('allDishes')}</h2>
       {items && items.length > 0 ? (
         <div className='catalog__content'>
-          {items?.map((item) => {
-            return (
-              <CatalogCard foodDetail={handleOpen} key={item.id} item={item} />
-            );
+          {[...items, ...items, ...items]?.map((item, i) => {
+            return <CatalogCard foodDetail={handleOpen} key={i} item={item} />;
           })}
           {window.innerWidth < 768 && cart.length !== 0 && (
             <div className='catalog__footer'>
               <button
                 onClick={() => navigate('/cart')}
-                style={{ backgroundColor: colorTheme }}
+                style={{ backgroundColor: '#f80101' }}
               >
                 {t('basket.order')}
                 <span className='font-light absolute right-[30px]'>

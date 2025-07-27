@@ -21,9 +21,6 @@ const Categories: FC<IProps> = ({ onCategoryChange, onSearchChange }) => {
     fridgeSlug: params.venue,
   });
   const [active, setActive] = useState<number | undefined>(0);
-  const colorTheme = useAppSelector(
-    (state) => state.yourFeature.venue?.colorTheme
-  );
   const { t } = useTranslation();
 
   const selectCategory = (id: number | undefined) => {
@@ -54,8 +51,8 @@ const Categories: FC<IProps> = ({ onCategoryChange, onSearchChange }) => {
             <div
               className={`categories__wrapper`}
               style={{
-                backgroundColor: -1 === active ? colorTheme : 'white',
-                borderColor: -1 === active ? colorTheme : 'white',
+                backgroundColor: -1 === active ? "#f80101" : 'white',
+                borderColor: -1 === active ? "#f80101" : 'white',
               }}
             >
               <svg
@@ -67,7 +64,7 @@ const Categories: FC<IProps> = ({ onCategoryChange, onSearchChange }) => {
                 y='0px'
                 viewBox='0 0 118.783 118.783'
                 xmlSpace='preserve'
-                fill={active === -1 ? 'white' : colorTheme}
+                fill={active === -1 ? 'white' : '#f80101'}
               >
                 <g>
                   <path
@@ -107,8 +104,8 @@ const Categories: FC<IProps> = ({ onCategoryChange, onSearchChange }) => {
           <div
             className={`categories__wrapper`}
             style={{
-              backgroundColor: 0 === active ? colorTheme : 'white',
-              borderColor: 0 === active ? colorTheme : 'white',
+              backgroundColor: 0 === active ? "#f80101" : 'white',
+              borderColor: 0 === active ? "#f80101" : 'white',
             }}
           >
             <svg
@@ -120,7 +117,7 @@ const Categories: FC<IProps> = ({ onCategoryChange, onSearchChange }) => {
               y='0px'
               viewBox='0 0 512 512'
               xmlSpace='preserve'
-              fill={active === 0 ? 'white' : colorTheme}
+              fill={active === 0 ? 'white' : '#f80101'}
             >
               <g>
                 <g>
