@@ -8,8 +8,8 @@ import BusketDesktop from 'components/BusketDesktop';
 import ClearCartModal from 'components/ClearCartModal';
 import Header from 'components/Header';
 import Hero from 'components/Hero';
-import SupHeader from 'components/SubHeader';
 
+// import SupHeader from 'components/SubHeader';
 import clearCartIcon from 'assets/icons/Busket/clear-cart.svg';
 
 import { loadUsersDataFromStorage } from 'src/utlis/storageUtils';
