@@ -38,10 +38,8 @@ const Cart: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState(
     `+996${userData.phoneNumber.replace('996', '')}`
   );
-  const [address, setAddress] = useState(userData.address || '');
 
   const [phoneError, setPhoneError] = useState('');
-  const [addressError, setAddressError] = useState('');
 
   const [activeFood, setActiveFood] = useState<IProduct | null>(null);
   const [clearCartModal, setClearCartModal] = useState(false);
@@ -82,25 +80,11 @@ const Cart: React.FC = () => {
     }
   };
 
-  const handleAddressChange = (value: string) => {
-    setAddress(value);
-
-    if (!value.trim()) {
-      setAddressError('Это обязательное поле');
-    } else if (value.trim().length < 4) {
-      setAddressError('Тут нужно минимум 4 символа');
-    } else {
-      setAddressError('');
-    }
-  };
-
   const isButtonDisabled = useMemo(() => {
     if (phoneError) return false;
-    if (addressError) return false;
     if (!phoneNumber.trim() || phoneNumber.length < 12) return false;
-    if (!address.trim() || address.trim().length < 4) return false;
     return true;
-  }, [phoneNumber, address, phoneError, addressError]);
+  }, [phoneNumber, phoneError]);
 
   const handleOrder = async () => {
     
@@ -144,7 +128,6 @@ const Cart: React.FC = () => {
       setUsersData({
         ...userData,
         phoneNumber: acc.phone,
-        address,
       })
     );
 

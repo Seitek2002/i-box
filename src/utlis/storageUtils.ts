@@ -34,7 +34,6 @@ export const loadVenueFromStorage: () => IVenues = () => {
     : {
         colorTheme: '#f80101',
         slug: '',
-        slug: '',
         logo: '',
         schedule: '',
         table: {

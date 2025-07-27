@@ -2,7 +2,6 @@ import { FC, useState } from 'react';
 
 import { IFoodCart } from 'types/products.types';
 import { useAppDispatch } from 'hooks/useAppDispatch';
-import { useAppSelector } from 'hooks/useAppSelector';
 
 import minus from 'assets/icons/Busket/minus.svg';
 import plus from 'assets/icons/Busket/plus.svg';
