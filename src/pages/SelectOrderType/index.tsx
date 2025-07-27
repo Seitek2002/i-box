@@ -13,11 +13,11 @@ import { clearCart, setVenue } from 'src/store/yourFeatureSlice';
 import { loadVenueFromStorage } from 'src/utlis/storageUtils';
 
 const SelectOrderType = () => {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
   const { venue } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { data } = useGetVenueQuery({ venueSlug: venue || '' });
+  const { data } = useGetVenueQuery({ fridgeSlug: venue || '' });
   const colorTheme = useAppSelector(
     (state) => state.yourFeature.venue.colorTheme
   );
@@ -113,7 +113,9 @@ const SelectOrderType = () => {
                   fill={colorTheme}
                 />
               </svg>
-              <span>{t('empty.delivery')} {'>'}</span>
+              <span>
+                {t('empty.delivery')} {'>'}
+              </span>
             </div>
           )}
           {data?.isTakeoutAvailable && (
@@ -166,7 +168,9 @@ const SelectOrderType = () => {
                   fill={colorTheme}
                 />
               </svg>
-              <span>{t('orders.takeAway')} {'>'}</span>
+              <span>
+                {t('orders.takeAway')} {'>'}
+              </span>
             </div>
           )}
           {data?.isDineinAvailable && (
@@ -226,7 +230,9 @@ const SelectOrderType = () => {
                   fill={colorTheme}
                 />
               </svg>
-              <span>{t('qrTable')} {'>'}</span>
+              <span>
+                {t('qrTable')} {'>'}
+              </span>
             </div>
           )}
         </div>

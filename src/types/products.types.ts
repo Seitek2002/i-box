@@ -30,21 +30,21 @@ export interface IProduct {
   productPhoto: string;
   category: ICategory;
   modificators: IModificator[];
-  isRecommended: boolean
+  isRecommended: boolean;
 }
 
 export interface IOrderProduct {
-  venueSlug: string,
-  spotSlug: string,
-  tableNum?: string,
-  phone: string,
-  comment: string,
-  serviceMode: number,
-  servicePrice: string,
-  tipsPrice: string,
+  fridgeSlug: string;
+  spotSlug: string;
+  tableNum?: string;
+  phone: string;
+  comment: string;
+  serviceMode: number;
+  servicePrice: string;
+  tipsPrice: string;
   orderProducts: {
-    product: number,
-    count: number,
-    modificator?: number
-  }[]
+    product: number;
+    count: number;
+    modificator?: number;
+  }[];
 }

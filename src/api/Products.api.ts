@@ -16,13 +16,13 @@ export const Products = createApi({
   endpoints: (builder) => ({
     getProducts: builder.query<
       IProduct[],
-      { search?: string; spotSlug?: string; venueSlug?: string }
+      { search?: string; spotSlug?: string; fridgeSlug?: string }
     >({
-      query: ({ search, spotSlug, venueSlug }) => {
+      query: ({ search, spotSlug, fridgeSlug }) => {
         const params = new URLSearchParams();
         if (search) params.append('search', search);
         if (spotSlug) params.append('spotSlug', spotSlug);
-        if (venueSlug) params.append('venueSlug', venueSlug);
+        if (fridgeSlug) params.append('fridgeSlug', fridgeSlug);
 
         return `products/?${params.toString()}`;
       },

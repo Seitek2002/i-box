@@ -18,7 +18,7 @@ const Categories: FC<IProps> = ({ onCategoryChange, onSearchChange }) => {
   const params = useParams<{ venue: string }>();
   const [isShow, setIsShow] = useState(false);
   const { data: categories } = useGetCategoriesQuery({
-    venueSlug: params.venue,
+    fridgeSlug: params.venue,
   });
   const [active, setActive] = useState<number | undefined>(0);
   const colorTheme = useAppSelector(
@@ -41,10 +41,7 @@ const Categories: FC<IProps> = ({ onCategoryChange, onSearchChange }) => {
   return (
     <section className='categories'>
       {categories && categories.length > 7 && (
-        <span
-          className={`dropdown-arrow`}
-          onClick={() => setIsShow(!isShow)}
-        >
+        <span className={`dropdown-arrow`} onClick={() => setIsShow(!isShow)}>
           {isShow ? t('hidden') : t('all')} {t('category')}
         </span>
       )}

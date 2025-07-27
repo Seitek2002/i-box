@@ -53,7 +53,7 @@ const Cart: React.FC = () => {
 
   const navigate = useNavigate();
   const { data } = useGetProductsQuery({
-    venueSlug: venueData.companyName.toUpperCase(),
+    fridgeSlug: venueData.companyName.toUpperCase(),
   });
 
   const inputRef = useMask({

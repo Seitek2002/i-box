@@ -52,7 +52,7 @@ const Home = () => {
       <div className='bg-white rounded-[12px] p-[12px]'>
         <Header searchText={searchText} setSearchText={setSearchText} />
         <hr className='my-[10px]' />
-        <SupHeader />
+        {/* <SupHeader /> */}
       </div>
       {window.innerWidth < 768 ? (
         <>
@@ -63,7 +63,7 @@ const Home = () => {
               setSearchText={setSearchText}
             />
           )}
-          <Hero />
+          {/* <Hero /> */}
           <div ref={catalogRef} className='pb-[100px]'>
             <Catalog />
           </div>

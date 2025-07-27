@@ -69,7 +69,7 @@ const Hero = () => {
 
   const { data: fetchedOrders } = useGetOrdersQuery({
     phone: `${user.phoneNumber}`,
-    venueSlug: venue.slug,
+    fridgeSlug: venue.slug,
   });
   const { t } = useTranslation();
 
@@ -106,7 +106,7 @@ const Hero = () => {
   }, [fetchedOrders]);
 
   const ws = new WebSocket(
-    `wss://imenu.kg/ws/orders/?phone_number=${user.phoneNumber}`
+    `wss://ibox.kg/ws/orders/?phone_number=${user.phoneNumber}`
   );
 
   ws.onopen = () => {

@@ -15,12 +15,12 @@ export const Categories = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getCategories: builder.query<ICategory[], { venueSlug?: string }>({
-      query: ({ venueSlug }) => ({
+    getCategories: builder.query<ICategory[], { fridgeSlug?: string }>({
+      query: ({ fridgeSlug }) => ({
         url: 'categories',
         method: 'GET',
         params: {
-          venueSlug,
+          fridgeSlug,
         },
       }),
     }),

@@ -28,7 +28,7 @@ const Catalog: FC<IProps> = ({ searchText }) => {
   const navigate = useNavigate();
   const { data: items } = useGetProductsQuery({
     search: searchText,
-    venueSlug: venue,
+    fridgeSlug: venue,
   });
 
   const handleClose = () => {

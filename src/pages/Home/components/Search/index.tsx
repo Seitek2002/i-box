@@ -22,7 +22,7 @@ const Search: FC<IProps> = ({ onSearchChange, searchText, setSearchText }) => {
   const [activeFood, setActiveFood] = useState<IProduct | null>(null);
   const { data: items } = useGetProductsQuery({
     search: searchText,
-    venueSlug: venue,
+    fridgeSlug: venue,
   });
 
   const handleClose = () => {

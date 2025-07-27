@@ -15,13 +15,13 @@ export const Venues = createApi({
   endpoints: (builder) => ({
     getVenue: builder.query<
       IVenues,
-      { venueSlug: string; tableId?: string | number }
+      { fridgeSlug: string; tableId?: string | number }
     >({
-      query: ({ venueSlug, tableId }) => {
-        if (!tableId) return `venues/${venueSlug}/`;
-        if (!venueSlug || !tableId) return '/venues';
+      query: ({ fridgeSlug, tableId }) => {
+        if (!tableId) return `venues/${fridgeSlug}/`;
+        if (!fridgeSlug || !tableId) return '/venues';
 
-        return `venues/${venueSlug}/table/${tableId}/`;
+        return `venues/${fridgeSlug}/table/${tableId}/`;
       },
     }),
   }),

@@ -11,7 +11,7 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Scan />} />
-        <Route path='/I/:venue/d' element={<Home />} />
+        <Route path='/I/:venue' element={<Home />} />
         <Route path='/I/:venue/:venueId/:id' element={<Home />} />
 
         <Route element={<ProtectedRoute />}>

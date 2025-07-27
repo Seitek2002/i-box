@@ -19,15 +19,15 @@ export const Orders = createApi({
       IOrder[],
       {
         tableNum?: string;
-        venueSlug?: string;
+        fridgeSlug?: string;
         spotSlug?: string;
         phone?: string;
       }
     >({
-      query: ({ tableNum, venueSlug, spotSlug, phone }) => {
+      query: ({ tableNum, fridgeSlug, spotSlug, phone }) => {
         const params = new URLSearchParams();
         if (tableNum) params.append('tableNum', tableNum);
-        if (venueSlug) params.append('venueSlug', venueSlug);
+        if (fridgeSlug) params.append('fridgeSlug', fridgeSlug);
         if (spotSlug) params.append('spotSlug', spotSlug);
         if (phone) params.append('phone', phone);
 

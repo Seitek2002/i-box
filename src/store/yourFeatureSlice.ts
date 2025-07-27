@@ -3,7 +3,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IFoodCart, IOrderProduct } from 'src/types/products.types';
 import { IVenues } from 'src/types/venues.types';
 
-import { loadCartFromStorage, loadUsersDataFromStorage, loadVenueFromStorage, saveCartToStorage, saveUsersDataToStorage } from 'src/utlis/storageUtils';
+import {
+  loadCartFromStorage,
+  loadUsersDataFromStorage,
+  loadVenueFromStorage,
+  saveCartToStorage,
+  saveUsersDataToStorage,
+} from 'src/utlis/storageUtils';
 
 export interface IUsersData {
   phoneNumber: string;
@@ -39,7 +45,7 @@ const initialState: YourFeatureState = {
     servicePrice: '',
     tableNum: '',
     tipsPrice: '',
-    venueSlug: '',
+    fridgeSlug: '',
     spotSlug: '',
   },
 };
@@ -73,7 +79,7 @@ const yourFeatureSlice = createSlice({
           quantity: action.payload.quantity,
         });
       }
-      saveCartToStorage(state.cart)
+      saveCartToStorage(state.cart);
     },
     incrementFromCart: (state, action) => {
       const foundItem = state.cart.find((item) => item.id == action.payload.id);
@@ -81,7 +87,9 @@ const yourFeatureSlice = createSlice({
         if (foundItem.quantity > 1) {
           foundItem.quantity -= 1;
         } else {
-          state.cart = state.cart.filter((item) => item.id != action.payload.id);
+          state.cart = state.cart.filter(
+            (item) => item.id != action.payload.id
+          );
         }
       }
       saveCartToStorage(state.cart);
@@ -99,7 +107,7 @@ const yourFeatureSlice = createSlice({
     setUsersData: (state, action) => {
       state.usersData = action.payload;
       saveUsersDataToStorage(action.payload);
-    }
+    },
   },
 });
 
