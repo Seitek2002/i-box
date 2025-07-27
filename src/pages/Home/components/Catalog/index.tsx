@@ -81,7 +81,7 @@ const Catalog: FC<IProps> = ({ searchText }) => {
       <h2>{t('allDishes')}</h2>
       {items && items.length > 0 ? (
         <div className='catalog__content'>
-          {[...items, ...items, ...items]?.map((item, i) => {
+          {items?.map((item, i) => {
             return <CatalogCard foodDetail={handleOpen} key={i} item={item} />;
           })}
           {window.innerWidth < 768 && cart.length !== 0 && (
