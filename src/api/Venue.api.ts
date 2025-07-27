@@ -18,10 +18,10 @@ export const Venues = createApi({
       { fridgeSlug: string; tableId?: string | number }
     >({
       query: ({ fridgeSlug, tableId }) => {
-        if (!tableId) return `venues/${fridgeSlug}/`;
-        if (!fridgeSlug || !tableId) return '/venues';
+        if (!tableId) return `fridges/${fridgeSlug}/`;
+        if (!fridgeSlug || !tableId) return '/fridges';
 
-        return `venues/${fridgeSlug}/table/${tableId}/`;
+        return `fridges/${fridgeSlug}/table/${tableId}/`;
       },
     }),
   }),
