@@ -11,6 +11,7 @@ export interface IVenues {
   schedule: string;
   serviceFeePercent: number;
   location: string;
+  name: string;
   table: {
     id: number;
     tableNum: string;

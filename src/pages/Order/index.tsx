@@ -71,7 +71,7 @@ const Order = () => {
 
   useEffect(() => {
     const ws = new WebSocket(
-      `wss://imenu.kg/ws/orders/?phone_number=${user.phoneNumber}&site=imenu`
+      `wss://ibox.kg/ws/orders/?phone_number=${user.phoneNumber}&site=ibox`
     );
 
     ws.onopen = () => {

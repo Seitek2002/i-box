@@ -35,16 +35,14 @@ const SubHeader = () => {
 
   return (
     <div className='sub-header'>
-      {/* <div className='sub-header__content'>
+      <div className='sub-header__content'>
         <div className='venue'>
-          <div className='logo'>
-            <img src={data?.logo} alt='' />
-          </div>
-          <div>
-            <div className='name'>{data?.slug}</div>
+          <div className='flex gap-3'>
+            <div className='name'>{data?.name}</div>
+            <div className='name'>{data?.location}</div>
           </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
