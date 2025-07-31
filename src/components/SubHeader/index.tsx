@@ -37,9 +37,9 @@ const SubHeader = () => {
     <div className='sub-header'>
       <div className='sub-header__content'>
         <div className='venue'>
-          <div className='flex gap-3'>
+          <div className='flex flex-col gap-3'>
             <div className='name'>{data?.name}</div>
-            <div className='name'>{data?.location}</div>
+            <div className='name' style={{ color: 'gray', fontSize: '14px' }}>{data?.location}</div>
           </div>
         </div>
       </div>
